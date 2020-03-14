@@ -2,7 +2,7 @@
 
 This setup is using:
 
-- [NextJS 9.2.2](https://nextjs.org/)
+- [NextJS 9.3.0](https://nextjs.org/)
 - [Postgres 11](https://github.com/brianc/node-postgres)
 - [Express 4.17.1](https://github.com/expressjs/express)
 - [Emotion CSS-in-JS 9.2.11](https://5bb1495273f2cf57a2cf39cc--emotion.netlify.com/)

@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import * as React from 'react';
 import * as Actions from '~/common/actions';
 import * as Constants from '~/common/constants';
+import * as Strings from '~/common/strings';
 
 import { H1, H2, P } from '~/components/Text';
 import { Input, Button } from '~/components/Form';
@@ -41,11 +42,13 @@ function Page(props) {
           <a href={props.googleURL}>Create an account through Google.</a>
         </H2>
         <H2 style={{ marginTop: 24 }}>
-          <a href="/sign-in-success">View an authenticated only page.</a>
+          <a href="/sign-in-success">View an authenticated page.</a>
         </H2>
-        <H2 style={{ marginTop: 24 }}>
-          <a href="/organization">View an organization page.</a>
-        </H2>
+        {props.viewer ? (
+          <H2 style={{ marginTop: 24 }}>
+            <a href={`/$${Strings.getDomainFromEmail(props.viewer.email)}`}>View an organization page.</a>
+          </H2>
+        ) : null}
         <H2 style={{ marginTop: 24 }}>
           <a href="/sign-out">Sign out.</a>
         </H2>

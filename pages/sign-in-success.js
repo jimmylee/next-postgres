@@ -22,7 +22,7 @@ function Page(props) {
       <div className={STYLES_LAYOUT}>
         <H1 style={{ marginTop: 24 }}>You can only see this authenticated.</H1>
         <H2 style={{ marginTop: 24 }}>
-          <a href="/organization">View an organization page.</a>
+          <a href="/">View index page.</a>
         </H2>
         <H2 style={{ marginTop: 24 }}>
           <a href="/">Return to sign in page.</a>

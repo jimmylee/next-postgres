@@ -73,10 +73,6 @@ app.prepare().then(() => {
     return await Routes.targetOrganization(req, res, app);
   });
 
-  server.get('/organization', async (req, res) => {
-    return await Routes.organization(req, res, app);
-  });
-
   server.get('*', async (req, res) => {
     return nextRequestHandler(req, res, req.url);
   });

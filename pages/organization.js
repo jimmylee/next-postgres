@@ -21,6 +21,9 @@ function Page(props) {
       <PageState data={props} />
       {props.organization ? <H1 style={{ marginTop: 24 }}>{props.organization.data.name}</H1> : null}
       <H2 style={{ marginTop: 24 }}>
+        <a href="/">View index page.</a>
+      </H2>
+      <H2 style={{ marginTop: 24 }}>
         <a href="/sign-in-success">View an authenticated only page.</a>
       </H2>
     </React.Fragment>

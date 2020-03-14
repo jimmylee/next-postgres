@@ -32,10 +32,10 @@ function Page(props) {
       <div className={STYLES_LAYOUT}>
         <H1 style={{ marginTop: 24 }}>Sign in confirm</H1>
         <H2 style={{ marginTop: 24 }}>
-          <a href="/sign-in-success">View an authenticated only page.</a>
+          <a href="/">View index page.</a>
         </H2>
         <H2 style={{ marginTop: 24 }}>
-          <a href="/organization">View an organization page.</a>
+          <a href="/sign-in-success">View an authenticated page.</a>
         </H2>
       </div>
     </React.Fragment>
