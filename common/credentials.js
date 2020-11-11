@@ -5,5 +5,5 @@ if (process.env.NODE_ENV !== "production") {
 export const CLIENT_ID = process.env.CLIENT_ID;
 export const CLIENT_SECRET = process.env.CLIENT_SECRET;
 export const PASSWORD_SECRET = process.env.PASSWORD_SECRET;
-export const REDIRECT_URIS = "http://localhost:1337/sign-in-confirm";
+export const REDIRECT_URIS = "https://plate-u17e.onrender.com/sign-in-confirm";
 export const JWT_SECRET = process.env.JWT_SECRET;
