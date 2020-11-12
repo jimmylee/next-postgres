@@ -3,7 +3,7 @@ import knex from "knex";
 
 const environment =
   process.env.NODE_ENV !== "local-production" ? "development" : "production";
-const envConfig = configs["production"];
+const envConfig = configs[environment];
 
 console.log(`SETUP: database`, envConfig);
 

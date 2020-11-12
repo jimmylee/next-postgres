@@ -16,7 +16,6 @@ const STYLES_LAYOUT = css`
 `;
 
 function Page(props) {
-  console.log(error);
   return (
     <React.Fragment>
       <Head>
