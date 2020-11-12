@@ -87,6 +87,6 @@ app.prepare().then(() => {
       throw err;
     }
 
-    console.log(`[ next-postgres server ] http://localhost:${port}`);
+    console.log(`[ 🍝 serving plate ] http://localhost:${port}`);
   });
 });

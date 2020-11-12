@@ -12,7 +12,7 @@ export default async (req, res, app) => {
   const client = new OAuth2(
     process.env.CLIENT_ID,
     process.env.CLIENT_SECRET,
-    "process.env.REDIRECT_URIS"
+    process.env.REDIRECT_URIS
   );
 
   if (req.query.error) {
