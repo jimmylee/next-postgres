@@ -1,13 +1,13 @@
-import Head from 'next/head';
-import Cookies from 'universal-cookie';
+import Head from "next/head";
+import Cookies from "universal-cookie";
 
-import * as React from 'react';
-import * as Constants from '~/common/constants';
+import * as React from "react";
+import * as Constants from "~/common/constants";
 
-import { H1, H2, P } from '~/components/Text';
-import { css } from 'react-emotion';
+import { H1, H2, P } from "~/components/Text";
+import { css } from "react-emotion";
 
-import PageState from '~/components/PageState';
+import PageState from "~/components/PageState";
 
 const cookies = new Cookies();
 
@@ -16,6 +16,7 @@ const STYLES_LAYOUT = css`
 `;
 
 function Page(props) {
+  console.log(error);
   return (
     <React.Fragment>
       <Head>
@@ -38,7 +39,7 @@ function Page(props) {
   );
 }
 
-Page.getInitialProps = async ctx => {
+Page.getInitialProps = async (ctx) => {
   return {
     error: ctx.err,
     viewer: ctx.query.viewer,
