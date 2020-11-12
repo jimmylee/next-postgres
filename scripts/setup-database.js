@@ -1,9 +1,9 @@
-import configs from '~/knexfile';
-import knex from 'knex';
+import configs from "~/knexfile";
+import knex from "knex";
 
 const environment =
-  process.env.NODE_ENV !== 'local-production' ? 'development' : 'production';
-const envConfig = configs[environment];
+  process.env.NODE_ENV !== "local-production" ? "development" : "production";
+const envConfig = configs["production"];
 
 console.log(`SETUP: database`, envConfig);
 
