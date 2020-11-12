@@ -17,7 +17,7 @@ export default async (req, res, app) => {
 
   if (req.query.error) {
     console.log("query error: ", req.query.error);
-    //return res.redirect("/sign-in-error");
+    return res.redirect("/sign-in-error");
   }
 
   client.getToken(req.query.code, async (error, token) => {
