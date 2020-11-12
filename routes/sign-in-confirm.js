@@ -23,7 +23,7 @@ export default async (req, res, app) => {
   client.getToken(req.query.code, async (error, token) => {
     if (error) {
       console.log("token error: ", error);
-      //return res.redirect("/sign-in-error");
+      return res.redirect("/sign-in-error");
     }
 
     const jwt = JWT.sign(token, Credentials.JWT_SECRET);
