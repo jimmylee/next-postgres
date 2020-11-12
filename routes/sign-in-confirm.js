@@ -86,10 +86,10 @@ export default async (req, res, app) => {
 
     if (user.error) {
       console.log("user error: ", user.error);
-      //return app.render(req, res, "/sign-in-error", {
-      //jwt: null,
-      //viewer: null,
-      //});
+      return app.render(req, res, "/sign-in-error", {
+        jwt: null,
+        viewer: null,
+      });
     }
 
     const authToken = JWT.sign(
