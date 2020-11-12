@@ -10,9 +10,9 @@ const OAuth2 = google.auth.OAuth2;
 
 export default async (req, res, app) => {
   const client = new OAuth2(
-    Credentials.CLIENT_ID,
-    Credentials.CLIENT_SECRET,
-    Credentials.REDIRECT_URIS
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    "process.env.REDIRECT_URIS"
   );
 
   if (req.query.error) {
