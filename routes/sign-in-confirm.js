@@ -64,24 +64,6 @@ export default async (req, res, app) => {
         salt,
         data: { name, verified: true },
       });
-
-      // NOTE(jim): Because the domain comes from google.
-      // If the organization doesn't exist. create it.
-      const domain = Strings.getDomainFromEmail(email);
-      const organization = await Data.getOrganizationByDomain({ domain });
-
-      if (!organization) {
-        const companyName = domain.split(".")[0];
-        await Data.createOrganization({
-          domain,
-          data: {
-            name: Strings.capitalizeFirstLetter(companyName),
-            tier: 0,
-            ids: [user.id],
-            admins: [],
-          },
-        });
-      }
     }
 
     if (user.error) {
