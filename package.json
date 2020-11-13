@@ -2,7 +2,7 @@
   "name": "next-postgres",
   "version": "0.0.1",
   "scripts": {
-    "dev": "nodemon .",
+    "dev": "node .",
     "build": "next build",
     "start": "NODE_ENV=production node .",
     "do-setup-database": "node ./scripts setup-database",

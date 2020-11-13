@@ -1,6 +1,6 @@
-import * as Constants from '~/common/constants';
+import * as Constants from "~/common/constants";
 
-import { injectGlobal } from 'react-emotion';
+import { injectGlobal } from "react-emotion";
 
 /* prettier-ignore */
 export default () => injectGlobal`
@@ -34,15 +34,21 @@ export default () => injectGlobal`
     display: block;
   }
 
+  html {
+  scroll-behavior: smooth;
+  }
+
   html, body {
     background: ${Constants.theme.pageBackground};
     color: ${Constants.theme.pageText};
+    margin: ${Constants.theme.containerPadding};
     font-size: 16px;
     font-family: 'body', -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
     ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 
     @media (max-width: 768px) {
       font-size: 12px;
+      margin: ${Constants.theme.containerPaddingMobile};
     }
 
     ::-webkit-scrollbar {

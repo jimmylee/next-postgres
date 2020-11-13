@@ -1,7 +1,9 @@
-import Document, { Head, Main, NextScript } from 'next/document';
-import { extractCritical } from 'emotion-server';
+import Document, { Head, Main, NextScript } from "next/document";
+import Navbar from "~/components/Navbar";
 
-import injectGlobalStyles from '~/common/styles/global';
+import { extractCritical } from "emotion-server";
+
+import injectGlobalStyles from "~/common/styles/global";
 
 injectGlobalStyles();
 
@@ -27,6 +29,7 @@ export default class MyDocument extends Document {
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
         </Head>
         <body>
+          <Navbar data={this.props} />
           <Main />
           <NextScript />
         </body>
