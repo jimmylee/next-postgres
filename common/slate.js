@@ -6,7 +6,12 @@ import * as Utilities from "~/common/utilities";
 export const Upload = async (event, user_id, slate) => {
   //Upload an image and insert a db query
   let file = event.target.files[0];
-  let slate_id = Credentials.SLATE_PUBLIC;
+  const slate_id = Credentials.SLATE_PRIVATE;
+  const api = Credentials.SLATE_API;
+
+  console.log("[ SLATE ID ]: ", slate_id);
+  console.log("[ SLATE API ]: ", api);
+
   const url =
     "https://uploads.slate.host/api/public/ffca5f8c-c9c6-425e-8e49-0b8f17015bd8";
   let data = new FormData();
