@@ -34,30 +34,10 @@ const createUserTable = db.schema.createTable("users", function (table) {
   table.jsonb("data").nullable();
 });
 
-const createOrganizationsTable = db.schema.createTable(
-  "organizations",
-  function (table) {
-    table
-      .uuid("id")
-      .primary()
-      .unique()
-      .notNullable()
-      .defaultTo(db.raw("uuid_generate_v4()"));
-
-    table.timestamp("created_at").notNullable().defaultTo(db.raw("now()"));
-
-    table.timestamp("updated_at").notNullable().defaultTo(db.raw("now()"));
-
-    table.string("domain").unique().notNullable();
-
-    table.jsonb("data").nullable();
-  }
-);
-
 // --------------------------
 // RUN
 // --------------------------
 
-Promise.all([createUserTable, createOrganizationsTable]);
+Promise.all([createUserTable]);
 
 console.log(`FINISHED: seed-database.js NODE_ENV=${environment}`);
