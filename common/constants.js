@@ -21,6 +21,6 @@ export const theme = {
   buttonBackgroundActive: "#A8A8A8",
   pageBackground: colors.gray,
   pageText: colors.black,
-  containerPadding: "24px 140px 24px 140px",
+  containerPadding: "24px 15% 24px 15%",
   containerPaddingMobile: "24px 24px 24px 24px",
 };

@@ -24,7 +24,7 @@ function Page(props) {
           Build decentralized <br /> apps in minutes
         </h1>
 
-        <h2 style={{ fontWeight: 200, fontSize: "34px", marginTop: "-20px" }}>
+        <h2 style={{ fontWeight: 200, fontSize: "34px", marginTop: "24px" }}>
           + get{" "}
           <span>
             <Link href="https://slate.host">
@@ -34,11 +34,11 @@ function Page(props) {
           of free data storage.
         </h2>
 
-        <br />
-        <br />
-        <br />
-        <Link href="#demo">
-          <a style={{ textDecoration: "none" }}>
+        <Link
+          href="#demo"
+          style={{ textDecoration: "none", marginTop: "34px" }}
+        >
+          <a>
             <Button>See code demo</Button>
           </a>
         </Link>

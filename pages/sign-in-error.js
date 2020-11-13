@@ -12,7 +12,7 @@ import PageState from "~/components/PageState";
 const cookies = new Cookies();
 
 const STYLES_LAYOUT = css`
-  padding: 24px 24px 88px 24px;
+  width: 100%;
 `;
 
 function Page(props) {
@@ -23,16 +23,16 @@ function Page(props) {
       </Head>
       <PageState data={props} />
       <div className={STYLES_LAYOUT}>
-        <H1 style={{ marginTop: 24 }}>Error</H1>
-        <H2 style={{ marginTop: 24 }}>
+        <h1 style={{ marginTop: 24 }}>Error</h1>
+        <h2 style={{ marginTop: 24 }}>
           <a href="/">View index page.</a>
-        </H2>
-        <H2 style={{ marginTop: 24 }}>
+        </h2>
+        <h2 style={{ marginTop: 24 }}>
           <a href="/organization">View an organization page.</a>
-        </H2>
-        <H2 style={{ marginTop: 24 }}>
+        </h2>
+        <h2 style={{ marginTop: 24 }}>
           <a href="/sign-in-success">View an authenticated page.</a>
-        </H2>
+        </h2>
       </div>
     </React.Fragment>
   );
