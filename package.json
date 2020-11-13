@@ -1,5 +1,5 @@
 {
-  "name": "next-postgres",
+  "name": "Plate",
   "version": "0.0.1",
   "scripts": {
     "dev": "node .",
