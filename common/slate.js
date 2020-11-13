@@ -3,21 +3,12 @@ import * as Actions from "~/common/actions";
 import * as Constants from "~/common/constants";
 import * as Utilities from "~/common/utilities";
 
-function getSlateId(alias) {
-  let id;
-  if (alias == "private") {
-    id = Credentials.SLATE_PRIVATE;
-  } else {
-    id = Credentials.SLATE_PUBLIC;
-  }
-  return id;
-}
-
 export const Upload = async (event, user_id, slate) => {
   //Upload an image and insert a db query
   let file = event.target.files[0];
   let slate_id = Credentials.SLATE_PUBLIC;
-  const url = "https://uploads.slate.host/api/public/" + slate_id;
+  const url =
+    "https://uploads.slate.host/api/public/ffca5f8c-c9c6-425e-8e49-0b8f17015bd8";
   let data = new FormData();
   data.append("data", file);
 
