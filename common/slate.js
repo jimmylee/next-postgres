@@ -6,9 +6,9 @@ import * as Utilities from "~/common/utilities";
 function getSlateId(alias) {
   let id;
   if (alias == "private") {
-    id = process.env.SLATE_PRIVATE;
+    id = Credentials.SLATE_PRIVATE;
   } else {
-    id = process.env.SLATE_PUBLIC;
+    id = Credentials.SLATE_PUBLIC;
   }
   return id;
 }
@@ -16,7 +16,7 @@ function getSlateId(alias) {
 export const Upload = async (event, user_id, slate) => {
   //Upload an image and insert a db query
   let file = event.target.files[0];
-  let slate_id = process.env.SLATE_PUBLIC;
+  let slate_id = Credentials.SLATE_PUBLIC;
   const url = "https://uploads.slate.host/api/public/" + slate_id;
   let data = new FormData();
   data.append("data", file);
