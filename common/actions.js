@@ -1,17 +1,17 @@
-import 'isomorphic-fetch';
+import "isomorphic-fetch";
 
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 
-import * as Constants from '~/common/constants';
+import * as Constants from "~/common/constants";
 
 const cookies = new Cookies();
 
 const REQUEST_HEADERS = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json',
+  Accept: "application/json",
+  "Content-Type": "application/json",
 };
 
-const SERVER_PATH = '';
+const SERVER_PATH = "";
 
 const getHeaders = () => {
   const jwt = cookies.get(Constants.session.key);
@@ -26,11 +26,11 @@ const getHeaders = () => {
   return REQUEST_HEADERS;
 };
 
-export const onDeleteViewer = async e => {
+export const onDeleteViewer = async (e) => {
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: getHeaders(),
-    credentials: 'include',
+    credentials: "include",
     body: JSON.stringify({}),
   };
 
@@ -42,14 +42,14 @@ export const onDeleteViewer = async e => {
     return;
   }
 
-  window.location.href = '/';
+  window.location.href = "/";
 };
 
 export const onLocalSignIn = async (e, props, auth) => {
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: getHeaders(),
-    credentials: 'include',
+    credentials: "include",
     body: JSON.stringify({
       ...auth,
     }),
@@ -67,5 +67,26 @@ export const onLocalSignIn = async (e, props, auth) => {
     cookies.set(Constants.session.key, json.token);
   }
 
-  window.location.href = '/sign-in-success';
+  window.location.href = "/sign-in-success";
+};
+//
+//
+//ADD UPLOAD DATA TO THE POSTGRES
+export const addToDatabase = async (data) => {
+  console.log("[ fetching api ]");
+  const options = {
+    method: "POST",
+    headers: getHeaders(),
+    credentials: "include",
+    body: JSON.stringify({ user_id: data.user_id, object_id: data.object_id }),
+  };
+
+  const response = await fetch(`${SERVER_PATH}/api/upload-image`, options);
+  const json = await response.json();
+  console.log(json);
+  if (json.error) {
+    console.log(json.error);
+    return;
+  }
+  console.log("[ fetching done ]");
 };

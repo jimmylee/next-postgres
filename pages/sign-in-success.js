@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import * as React from "react";
 import * as Constants from "~/common/constants";
+import * as Slate from "~/common/slate";
 
 import { css } from "react-emotion";
 
@@ -12,6 +13,10 @@ const STYLES_LAYOUT = css`
 `;
 
 function Page(props) {
+  const user = props.viewer;
+  const uploads = props.uploads;
+  console.log("user: ", user);
+  console.log("uploads: ", uploads);
   return (
     <React.Fragment>
       <Head>
@@ -19,16 +24,7 @@ function Page(props) {
       </Head>
       <PageState data={props} />
       <div className={STYLES_LAYOUT}>
-        <h1 style={{ marginTop: 24 }}>You can only see this authenticated.</h1>
-        <h2 style={{ marginTop: 24 }}>
-          <a href="/">View index page.</a>
-        </h2>
-        <h2 style={{ marginTop: 24 }}>
-          <a href="/">Return to sign in page.</a>
-        </h2>
-        <h2 style={{ marginTop: 24 }}>
-          <a href="/sign-out">Sign out.</a>
-        </h2>
+        <h1 style={{ marginTop: 24 }}>Hi, {props.viewer.data.name}!</h1>
       </div>
     </React.Fragment>
   );
@@ -38,6 +34,7 @@ Page.getInitialProps = async (ctx) => {
   return {
     error: ctx.err,
     viewer: ctx.query.viewer,
+    uploads: ctx.query.uploads,
     data: ctx.query.data,
   };
 };

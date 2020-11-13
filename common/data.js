@@ -235,3 +235,69 @@ export const createUser = async ({ email, password, salt, data = {} }) => {
     },
   });
 };
+
+export const insertUploadData = async ({ user_id, object_id }) => {
+  return await runQuery({
+    label: "UPLOAD_DATA",
+    queryFn: async () => {
+      const query = await DB.insert({
+        user_id,
+        object_id,
+      })
+        .into("uploads")
+        .returning("*");
+
+      const index = query ? query.pop() : null;
+      return index;
+    },
+    errorFn: async (e) => {
+      console.log(e);
+      return {
+        error: "UPLOAD_DATA",
+        source: e,
+      };
+    },
+  });
+};
+
+export const getUserUploads = async ({
+  user_id,
+  type = Constants.retrieve.default,
+  limit,
+}) => {
+  return await runQuery({
+    label: "GET_USER_UPLOADS",
+    queryFn: async () => {
+      const query = await DB.select("*")
+        .from("uploads")
+        .where({ user_id: user_id })
+        .orderBy("created_at", "desc")
+        .limit(limit);
+      return query;
+    },
+    errorFn: async (e) => {
+      console.log(e);
+      return {
+        error: "GET_USER_UPLOADS",
+        source: e,
+      };
+    },
+  });
+};
+
+export const getAllUploads = async () => {
+  return await runQuery({
+    label: "GET_ALL_UPLOADS",
+    queryFn: async () => {
+      const query = await DB.select("*").from("uploads");
+      return query;
+    },
+    errorFn: async (e) => {
+      console.log(e);
+      return {
+        error: "GET_ALL_UPLOADS",
+        source: e,
+      };
+    },
+  });
+};

@@ -33,6 +33,10 @@ app.prepare().then(() => {
     return await Routes.api.signIn(req, res);
   });
 
+  server.post("/api/upload-image", async (req, res) => {
+    return await Routes.api.uploadImage(req, res);
+  });
+
   server.post("/api/users/delete", async (req, res) => {
     return await Routes.api.viewerDelete(req, res);
   });

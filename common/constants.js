@@ -1,3 +1,7 @@
+export const retrieve = {
+  default: "video",
+};
+
 export const zindex = {
   sidebar: 1,
   editor: {
