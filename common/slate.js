@@ -16,9 +16,8 @@ function getSlateId(alias) {
 export const Upload = async (event, user_id, slate) => {
   //Upload an image and insert a db query
   let file = event.target.files[0];
-  //let slate_id = getSlateId(slate);
-  const url =
-    "https://uploads.slate.host/api/public/" + process.env.SLATE_PUBLIC;
+  let slate_id = process.env.SLATE_PUBLIC;
+  const url = "https://uploads.slate.host/api/public/" + slate_id;
   let data = new FormData();
   data.append("data", file);
 
