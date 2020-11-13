@@ -12,7 +12,7 @@ import CodeBox from "~/components/CodeBox";
 import { css } from "react-emotion";
 
 function Page(props) {
-  const [auth, setAuth] = React.useState({ email: "", password: "" });
+  const images = props.allUploads;
   const isLoggedIn = props.viewer;
   return (
     <React.Fragment>
@@ -64,6 +64,17 @@ function Page(props) {
         </p>
         <CodeBox text="const images = await Data.getUploads({ limit: 4 });" />
         <br />
+        <div style={{ marginTop: "32px" }}>
+          {images.map((image, index) => (
+            <>
+              <img
+                width="100%"
+                src={`https://slate.textile.io/ipfs/${image.object_id}`}
+                key={image.object_id}
+              />
+            </>
+          ))}
+        </div>
       </div>
       <div
         id="included"
@@ -195,6 +206,7 @@ Page.getInitialProps = async (ctx) => {
   return {
     googleURL: ctx.query.googleURL,
     viewer: ctx.query.viewer,
+    allUploads: ctx.query.allUploads,
     error: ctx.err,
   };
 };
