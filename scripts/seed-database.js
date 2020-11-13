@@ -15,6 +15,25 @@ console.log(`RUNNING: seed-database.js NODE_ENV=${environment}`);
 // SCRIPTS
 // --------------------------
 
+const createUserTable = db.schema.createTable("users", function (table) {
+  table
+    .uuid("id")
+    .primary()
+    .unique()
+    .notNullable()
+    .defaultTo(db.raw("uuid_generate_v4()"));
+
+  table.timestamp("created_at").notNullable().defaultTo(db.raw("now()"));
+
+  table.timestamp("updated_at").notNullable().defaultTo(db.raw("now()"));
+
+  table.string("email").unique().notNullable();
+
+  table.string("password").nullable();
+  table.string("salt").nullable();
+  table.jsonb("data").nullable();
+});
+
 const createUploadsTable = db.schema.createTable("uploads", function (table) {
   table
     .uuid("id")
@@ -36,6 +55,6 @@ const createUploadsTable = db.schema.createTable("uploads", function (table) {
 // RUN
 // --------------------------
 
-Promise.all([createUploadsTable]);
+Promise.all([createUserTable, createUploadsTable]);
 
 console.log(`FINISHED: seed-database.js NODE_ENV=${environment}`);
