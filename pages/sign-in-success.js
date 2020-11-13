@@ -16,35 +16,19 @@ const STYLES_LAYOUT = css`
 function Page(props) {
   const user = props.viewer;
   const uploads = props.uploads;
-  console.log("user: ", user);
-  console.log("uploads: ", uploads);
+  console.log("[ USER_DATA ]: ", user);
+  console.log("[ UPLOADS_DATA ]: ", uploads);
   return (
     <React.Fragment>
       <Head>
         <title>Plate - A Slate + NextJS + Postgres boilerplate</title>
       </Head>
-      <PageState data={props} />
       <div className={STYLES_LAYOUT}>
-        <h1 style={{ marginTop: 24 }}>Hi, {props.viewer.data.name}!</h1> <br />
-        <p style={{ fontWeight: 200, fontSize: "20px", marginTop: "8px" }}>
-          Create a similar page in your app with:
-        </p>
-        <div
-          style={{
-            backgroundColor: "#27292E",
-            color: "#F8F8F8",
-            margin: "8px 0 32px 0",
-            padding: "8px",
-            borderRadius: "4px",
-            fontWeight: "300",
-          }}
-        >
-          <p>
-            npm run <span style={{ color: "#FFC940" }}>make:</span>auth{" "}
-            <span style={{ color: "#28A745" }}>--name</span>=ProfileSettings
-          </p>
+        <h1 style={{ marginTop: 24 }}>Hi, {props.viewer.data.name}!</h1>
+        <div style={{ marginTop: 24 }}>
+          <PageState data={props} />
         </div>
-        <p style={{ fontWeight: 300, fontSize: "24px", marginTop: "32px" }}>
+        <p style={{ fontWeight: 300, fontSize: 24, marginTop: 24 }}>
           My images
         </p>
         <br />
