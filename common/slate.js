@@ -1,4 +1,4 @@
-import * as Credentials from "~/common/credentials";
+import * as Credentials from "~/credentials";
 import * as Actions from "~/common/actions";
 import * as Constants from "~/common/constants";
 import * as Utilities from "~/common/utilities";
