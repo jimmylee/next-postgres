@@ -227,6 +227,7 @@ export const createUser = async ({ email, password, salt, data = {} }) => {
       return index;
     },
     errorFn: async (e) => {
+      console.log(e);
       return {
         error: "CREATE_USER",
         source: e,
