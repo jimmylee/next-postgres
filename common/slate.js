@@ -4,8 +4,13 @@ import * as Constants from "~/common/constants";
 import * as Utilities from "~/common/utilities";
 
 function getSlateId(alias) {
-  var result = Credentials.SLATES.find((x) => x.alias === alias);
-  return result.id;
+  let id;
+  if (alias == "private") {
+    id = process.env.SLATE_PRIVATE;
+  } else {
+    id = process.env.SLATE_PUBLIC;
+  }
+  return id;
 }
 
 export const Upload = async (event, user_id, slate) => {
