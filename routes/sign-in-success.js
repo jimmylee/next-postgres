@@ -8,6 +8,7 @@ export default async (req, res, app) => {
     type: "image",
     user_id: id,
   });
+  console.log("[ CLIENT ]: ", process.env.CLIENT_ID);
 
   if (!viewer || viewer.error) {
     return app.render(req, res, "/sign-in-error", { viewer: null });

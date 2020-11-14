@@ -18,7 +18,6 @@ function Page(props) {
   const uploads = props.uploads;
   console.log("[ USER_DATA ]: ", user);
   console.log("[ UPLOADS_DATA ]: ", uploads);
-  console.log("[ CLIENT ]: ", process.env.CLIENT_ID);
 
   return (
     <React.Fragment>
