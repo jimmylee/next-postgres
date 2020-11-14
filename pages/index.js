@@ -103,7 +103,9 @@ function Page(props) {
             paddingTop: "16px",
           }}
         >
-          <div style={{ marginBottom: "16px" }}></div>
+          - User authentication <br />
+          - Slate file storage <br />
+          - Page & component builder <br />
         </div>
         <Link href="#install">
           <a>
