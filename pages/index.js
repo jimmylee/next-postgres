@@ -1,16 +1,16 @@
-import Head from 'next/head';
-import Cookies from 'universal-cookie';
+import Head from "next/head";
+import Cookies from "universal-cookie";
 
-import * as React from 'react';
-import * as Actions from '~/common/actions';
-import * as Constants from '~/common/constants';
-import * as Strings from '~/common/strings';
+import * as React from "react";
+import * as Actions from "~/common/actions";
+import * as Constants from "~/common/constants";
+import * as Strings from "~/common/strings";
 
-import { H1, H2, P } from '~/components/Text';
-import { Input, Button } from '~/components/Form';
-import { css } from 'react-emotion';
+import { H1, H2, P } from "~/components/Text";
+import { Input, Button } from "~/components/Form";
+import { css } from "@emotion/core";
 
-import PageState from '~/components/PageState';
+import PageState from "~/components/PageState";
 
 const STYLES_FORM = css`
   padding: 24px;
@@ -28,7 +28,7 @@ const STYLES_LAYOUT = css`
 `;
 
 function Page(props) {
-  const [auth, setAuth] = React.useState({ email: '', password: '' });
+  const [auth, setAuth] = React.useState({ email: "", password: "" });
 
   return (
     <React.Fragment>
@@ -36,7 +36,7 @@ function Page(props) {
         <title>next-postgres</title>
       </Head>
       <PageState data={props} />
-      <div className={STYLES_LAYOUT}>
+      <div css={STYLES_LAYOUT}>
         <H1 style={{ marginTop: 24 }}>Sign in</H1>
         <H2 style={{ marginTop: 24 }}>
           <a href={props.googleURL}>Create an account through Google.</a>
@@ -46,22 +46,31 @@ function Page(props) {
         </H2>
         {props.viewer ? (
           <H2 style={{ marginTop: 24 }}>
-            <a href={`/$${Strings.getDomainFromEmail(props.viewer.email)}`}>View an organization page.</a>
+            <a href={`/$${Strings.getDomainFromEmail(props.viewer.email)}`}>
+              View an organization page.
+            </a>
           </H2>
         ) : null}
         <H2 style={{ marginTop: 24 }}>
           <a href="/sign-out">Sign out.</a>
         </H2>
-        <H2 style={{ marginTop: 24 }} onClick={e => Actions.onDeleteViewer(e)}>
-          <u style={{ cursor: 'pointer' }}>Delete yourself (Must be authenticated).</u>
+        <H2
+          style={{ marginTop: 24 }}
+          onClick={(e) => Actions.onDeleteViewer(e)}
+        >
+          <u style={{ cursor: "pointer" }}>
+            Delete yourself (Must be authenticated).
+          </u>
         </H2>
-        <div className={STYLES_FORM}>
+        <div css={STYLES_FORM}>
           <P style={{ marginTop: 24, padding: 0 }}>E-mail</P>
           <Input
             autoComplete="off"
             name="email"
             value={auth.email}
-            onChange={e => setAuth({ ...auth, [e.target.name]: e.target.value })}
+            onChange={(e) =>
+              setAuth({ ...auth, [e.target.name]: e.target.value })
+            }
           />
           <P style={{ marginTop: 24, padding: 0 }}>Password</P>
           <Input
@@ -69,10 +78,14 @@ function Page(props) {
             name="password"
             type="password"
             value={auth.password}
-            onChange={e => setAuth({ ...auth, [e.target.name]: e.target.value })}
+            onChange={(e) =>
+              setAuth({ ...auth, [e.target.name]: e.target.value })
+            }
           />
-          <div className={STYLES_TOP}>
-            <Button onClick={e => Actions.onLocalSignIn(e, props, auth)}>Sign in or create account</Button>
+          <div css={STYLES_TOP}>
+            <Button onClick={(e) => Actions.onLocalSignIn(e, props, auth)}>
+              Sign in or create account
+            </Button>
           </div>
         </div>
       </div>
@@ -80,7 +93,7 @@ function Page(props) {
   );
 }
 
-Page.getInitialProps = async ctx => {
+Page.getInitialProps = async (ctx) => {
   return {
     googleURL: ctx.query.googleURL,
     viewer: ctx.query.viewer,

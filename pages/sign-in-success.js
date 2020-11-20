@@ -1,12 +1,12 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import * as React from 'react';
-import * as Constants from '~/common/constants';
+import * as React from "react";
+import * as Constants from "~/common/constants";
 
-import { H1, H2, P } from '~/components/Text';
-import { css } from 'react-emotion';
+import { H1, H2, P } from "~/components/Text";
+import { css } from "@emotion/core";
 
-import PageState from '~/components/PageState';
+import PageState from "~/components/PageState";
 
 const STYLES_LAYOUT = css`
   padding: 24px 24px 88px 24px;
@@ -19,7 +19,7 @@ function Page(props) {
         <title>next-postgres</title>
       </Head>
       <PageState data={props} />
-      <div className={STYLES_LAYOUT}>
+      <div css={STYLES_LAYOUT}>
         <H1 style={{ marginTop: 24 }}>You can only see this authenticated.</H1>
         <H2 style={{ marginTop: 24 }}>
           <a href="/">View index page.</a>
@@ -35,7 +35,7 @@ function Page(props) {
   );
 }
 
-Page.getInitialProps = async ctx => {
+Page.getInitialProps = async (ctx) => {
   return {
     error: ctx.err,
     viewer: ctx.query.viewer,

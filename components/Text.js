@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as Constants from '~/common/constants';
+import * as React from "react";
+import * as Constants from "~/common/constants";
 
-import { css } from 'react-emotion';
+import { css } from "@emotion/core";
 
 const MAX_WIDTH = 768;
 
@@ -17,8 +17,8 @@ const STYLES_HEADING = css`
   margin: 0 auto 0 auto;
 `;
 
-export const H1 = props => {
-  return <h1 {...props} className={STYLES_HEADING} />;
+export const H1 = (props) => {
+  return <h1 {...props} css={STYLES_HEADING} />;
 };
 
 const STYLES_HEADING_TWO = css`
@@ -33,8 +33,8 @@ const STYLES_HEADING_TWO = css`
   margin: 0 auto 0 auto;
 `;
 
-export const H2 = props => {
-  return <h2 {...props} className={STYLES_HEADING_TWO} />;
+export const H2 = (props) => {
+  return <h2 {...props} css={STYLES_HEADING_TWO} />;
 };
 
 const STYLES_PARAGRAPH = css`
@@ -50,8 +50,8 @@ const STYLES_PARAGRAPH = css`
   margin: 0 auto 0 auto;
 `;
 
-export const P = props => {
-  return <p {...props} className={STYLES_PARAGRAPH} />;
+export const P = (props) => {
+  return <p {...props} css={STYLES_PARAGRAPH} />;
 };
 
 const STYLES_BODY_TEXT = css`
@@ -63,6 +63,6 @@ const STYLES_BODY_TEXT = css`
   position: relative;
 `;
 
-export const BODY = props => {
-  return <div {...props} className={STYLES_BODY_TEXT} />;
+export const BODY = (props) => {
+  return <div {...props} css={STYLES_BODY_TEXT} />;
 };

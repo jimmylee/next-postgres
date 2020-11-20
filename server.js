@@ -13,7 +13,7 @@ const port = process.env.PORT || 1337;
 const app = next({ dev, quiet: false });
 const nextRequestHandler = app.getRequestHandler();
 
-app.prepare().then(() => {
+app.prepare().then(async () => {
   const server = express();
 
   if (!dev) {
