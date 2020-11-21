@@ -1,9 +1,9 @@
-import * as Constants from '~/common/constants';
+import * as Constants from "~/common/constants";
 
-import { injectGlobal } from 'react-emotion';
+import { css } from "@emotion/core";
 
 /* prettier-ignore */
-export default () => injectGlobal`
+const GlobalStyles = () => css`
   @font-face {
     font-family: 'mono';
     src: url('/static/SFMono-Medium.woff');
@@ -50,3 +50,5 @@ export default () => injectGlobal`
     }
   }
 `;
+
+export default GlobalStyles;

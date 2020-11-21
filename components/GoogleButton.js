@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { css } from 'react-emotion';
+import { css } from "@emotion/core";
 
 const STYLES_GOOGLE = css`
   height: 48px;
@@ -34,7 +34,7 @@ const STYLES_LOGO = css`
   display: inline-flex;
   background-size: cover;
   background-position: 50% 50%;
-  background-image: url('/static/logos/google.jpg');
+  background-image: url("/static/logos/google.jpg");
   margin-right: 16px;
   margin-left: 8px;
 `;
@@ -42,8 +42,8 @@ const STYLES_LOGO = css`
 export default class GoogleButton extends React.Component {
   render() {
     return (
-      <a className={STYLES_GOOGLE} href={this.props.href}>
-        <span className={STYLES_LOGO} />
+      <a css={STYLES_GOOGLE} href={this.props.href}>
+        <span css={STYLES_LOGO} />
         Sign in with Google
       </a>
     );

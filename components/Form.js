@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as Constants from '~/common/constants';
+import * as React from "react";
+import * as Constants from "~/common/constants";
 
-import { css } from 'react-emotion';
+import { css } from "@emotion/core";
 
 const STYLES_BUTTON = css`
   background: ${Constants.theme.buttonBackground};
@@ -57,14 +57,14 @@ const STYLES_BUTTON = css`
 export const Button = ({ children, style, onClick, href }) => {
   if (href) {
     return (
-      <a className={STYLES_BUTTON} style={style} href={href}>
+      <a css={STYLES_BUTTON} style={style} href={href}>
         {children}
       </a>
     );
   }
 
   return (
-    <button className={STYLES_BUTTON} style={style} onClick={onClick}>
+    <button css={STYLES_BUTTON} style={style} onClick={onClick}>
       {children}
     </button>
   );
@@ -109,15 +109,15 @@ export const Input = ({
   value,
   name,
   placeholder,
-  type = 'text',
-  autoComplete = 'input-autocomplete-off',
-  onBlur = e => {},
-  onFocus = e => {},
-  onChange = e => {},
+  type = "text",
+  autoComplete = "input-autocomplete-off",
+  onBlur = (e) => {},
+  onFocus = (e) => {},
+  onChange = (e) => {},
 }) => {
   return (
     <input
-      className={STYLES_INPUT}
+      css={STYLES_INPUT}
       style={style}
       value={value}
       onChange={onChange}
@@ -125,7 +125,8 @@ export const Input = ({
       onFocus={onFocus}
       onBlur={onBlur}
       type={type}
-      placeholder={placeholder}>
+      placeholder={placeholder}
+    >
       {children}
     </input>
   );
